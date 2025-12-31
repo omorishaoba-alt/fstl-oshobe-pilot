@@ -2,39 +2,64 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>OSHOBE – FSTL Professional Pilot</title>
+<title>OSHOBE – FSTL Pilot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial, sans-serif; background: #0b1c2d; color: #fff; margin: 0; padding: 20px; }
-h1, h2 { color: #d4af37; }
+/* Official simple colors */
+body { font-family: Arial, sans-serif; background: #0B1C2D; color: #ffffff; margin: 0; padding: 20px; }
+h1, h2 { color: #ffffff; margin-bottom: 10px; }
 .container { max-width: 800px; margin: auto; }
-.card { background: rgba(0,0,0,0.5); border: 1px solid #d4af37; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-input, button { width: 100%; padding: 10px; margin-top: 10px; border-radius: 6px; border: none; }
-button { background: #1f3c57; color: #d4af37; font-weight: bold; cursor: pointer; }
+.card { background: #ffffff10; border: 1px solid #ffffff33; border-radius: 8px; padding: 15px; margin-bottom: 20px; }
+
+/* Inputs and buttons */
+input, button { width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: none; }
+button { background: #ffffff; color: #0B1C2D; font-weight: bold; cursor: pointer; }
+button:hover { background: #e6e6e6; }
+
+/* Table */
 table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-td, th { border: 1px solid #555; padding: 8px; text-align: left; }
-.footer { font-size: 0.9em; opacity: 0.85; margin-top: 30px; }
-a { color: #d4af37; text-decoration: none; }
-a:hover { text-decoration: underline; }
-.summary { margin-top: 15px; font-weight: bold; }
+td, th { border: 1px solid #ffffff33; padding: 8px; text-align: left; }
+th { background: #ffffff22; }
+
+/* Footer */
+.footer { font-size: 0.9em; opacity: 0.85; margin-top: 20px; }
+a { color: #ffffff; text-decoration: underline; }
+
+.summary { margin-top: 10px; font-weight: bold; }
+.header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.header img { height: 50px; width: auto; }
+.header div { font-size: 0.95em; }
 </style>
 </head>
 
 <body>
 <div class="container">
-<h1>OSHOBE – FSTL Professional Pilot</h1>
-<p><strong>⚠️ Pilot Version – Feedback Requested</strong></p>
 
+<!-- Header -->
+<div class="header">
+<img src="https://yourcompany.com/logo.png" alt="FSTL Logo">
+<div>
+<strong>First Standard Title Limited (FSTL)</strong><br>
+RC Number: 714548<br>
+Official Address: 19, Egbue Avenue, Off Benoni Hospital Road, GRA, Benin City
+</div>
+</div>
+
+<h1>OSHOBE – FSTL Pilot</h1>
+<p><strong>⚠️ PILOT VERSION – FEEDBACK REQUESTED</strong></p>
+
+<!-- Earnings Calculator -->
 <div class="card">
 <h2>Agent Earnings Calculator</h2>
-<p>Agents earn 10% of each transaction.</p>
 <input type="number" id="amount" placeholder="Enter Transaction Value (₦)">
 <button onclick="calculate()">Calculate Earnings</button>
 <p id="result"></p>
 </div>
 
+<!-- Property / Lead Logging -->
 <div class="card">
-<h2>Log Property / Lead</h2>
+<h2>Property / Lead Logging</h2>
 <input id="property" placeholder="Property Name">
 <input id="client" placeholder="Client Name">
 <input id="value" type="number" placeholder="Transaction Value (₦)">
@@ -45,26 +70,24 @@ a:hover { text-decoration: underline; }
 <tr>
 <th>Property</th>
 <th>Client</th>
-<th>Value (₦)</th>
-<th>Earnings (₦)</th>
+<th>Transaction Value (₦)</th>
+<th>Agent Earnings (₦)</th>
 </tr>
 </thead>
 <tbody id="log"></tbody>
 </table>
 
 <p class="summary" id="totals">Total Transactions: ₦0 | Total Earnings: ₦0</p>
+
+<button onclick="downloadCSV()">Download CSV</button>
 </div>
 
+<!-- Footer / Feedback -->
 <div class="card footer">
-<p><strong>Send Feedback:</strong></p>
 <p>Email: fstlofficialsite@gmail.com</p>
-<p>
-<a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A" target="_blank">WhatsApp Feedback</a>
-</p>
-<p><strong>Official Address:</strong><br>
-First Standard Title Limited (FSTL)<br>
-19, Egbue Avenue, Off Benoni Hospital Road, GRA, Benin City</p>
+<p><a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A" target="_blank">WhatsApp Feedback</a></p>
 </div>
+
 </div>
 
 <script>
@@ -72,10 +95,7 @@ let totalValue = 0, totalEarnings = 0;
 
 function calculate() {
   const val = Number(document.getElementById("amount").value);
-  if (!val) {
-    document.getElementById("result").textContent = "Please enter a valid transaction value.";
-    return;
-  }
+  if (!val) { document.getElementById("result").textContent = "Enter a valid transaction value."; return; }
   const earn = val * 0.10;
   document.getElementById("result").textContent = "Agent Earnings: ₦" + earn.toLocaleString();
 }
@@ -103,6 +123,21 @@ function addRow() {
   document.getElementById("property").value = "";
   document.getElementById("client").value = "";
   document.getElementById("value").value = "";
+}
+
+function downloadCSV() {
+  let csv = "Property,Client,Transaction Value (₦),Agent Earnings (₦)\n";
+  document.querySelectorAll("#log tr").forEach(row => {
+    const cols = row.querySelectorAll("td");
+    const line = Array.from(cols).map(td => td.textContent.replace(/₦|,/g, "")).join(",");
+    csv += line + "\n";
+  });
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "OSHOBE_Leads.csv";
+  link.click();
 }
 </script>
 </body>
