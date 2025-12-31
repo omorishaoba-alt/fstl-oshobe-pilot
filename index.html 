@@ -10,14 +10,15 @@ body { font-family: Arial, sans-serif; background: #0b1c2d; color: #fff; margin:
 h1, h2 { color: #d4af37; }
 .card { background: rgba(0,0,0,0.45); border: 1px solid #d4af37; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
 input, button { width: 100%; padding: 10px; margin-top: 10px; border-radius: 6px; border: none; }
-button { background: #1f3c57; color: #d4af37; font-weight: bold; }
+button { background: #1f3c57; color: #d4af37; font-weight: bold; cursor: pointer; }
 table { width: 100%; border-collapse: collapse; margin-top: 10px; }
 td, th { border: 1px solid #555; padding: 8px; text-align: left; }
-.footer { font-size: 0.9em; opacity: 0.85; }
-a { color: #d4af37; }
+.footer { font-size: 0.9em; opacity: 0.85; margin-top: 30px; }
+a { color: #d4af37; text-decoration: none; }
+a:hover { text-decoration: underline; }
 </style>
-</head>
 
+</head>
 <body>
 
 <h1>OSHOBE</h1>
@@ -55,7 +56,7 @@ a { color: #d4af37; }
   <p><strong>Send Feedback:</strong></p>
   <p>Email: fstlofficialsite@gmail.com</p>
   <p>
-    <a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A">
+    <a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A" target="_blank">
       WhatsApp Feedback
     </a>
   </p>
@@ -66,27 +67,34 @@ a { color: #d4af37; }
 
 <script>
 function calculate() {
-  const val = document.getElementById("amount").value;
-  if (!val) return;
+  const val = Number(document.getElementById("amount").value);
+  if (!val) {
+    document.getElementById("result").textContent = "Please enter a valid transaction value.";
+    return;
+  }
   const earn = val * 0.10;
-  document.getElementById("result").innerHTML =
-    "Agent Earnings: ₦" + earn.toLocaleString();
+  document.getElementById("result").textContent = "Agent Earnings: ₦" + earn.toLocaleString();
 }
 
 function addRow() {
-  const p = property.value;
-  const c = client.value;
-  const v = value.value;
+  const p = document.getElementById("property").value.trim();
+  const c = document.getElementById("client").value.trim();
+  const v = Number(document.getElementById("value").value);
   if (!p || !c || !v) return;
+
   const e = v * 0.10;
   const row = `<tr>
     <td>${p}</td>
     <td>${c}</td>
-    <td>₦${Number(v).toLocaleString()}</td>
+    <td>₦${v.toLocaleString()}</td>
     <td>₦${e.toLocaleString()}</td>
   </tr>`;
+
   document.getElementById("log").innerHTML += row;
-  property.value = ""; client.value = ""; value.value = "";
+
+  document.getElementById("property").value = "";
+  document.getElementById("client").value = "";
+  document.getElementById("value").value = "";
 }
 </script>
 
