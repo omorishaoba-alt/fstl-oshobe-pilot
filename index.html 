@@ -6,49 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #0b1c2d;
-  color: #ffffff;
-  margin: 0;
-  padding: 20px;
-}
-h1, h2 {
-  color: #d4af37;
-}
-.card {
-  background: rgba(0,0,0,0.45);
-  border: 1px solid #d4af37;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-input, button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 6px;
-  border: none;
-}
-button {
-  background: #1f3c57;
-  color: #d4af37;
-  font-weight: bold;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-td, th {
-  border: 1px solid #555;
-  padding: 8px;
-  text-align: left;
-}
-.footer {
-  font-size: 0.9em;
-  opacity: 0.85;
-}
+body { font-family: Arial, sans-serif; background: #0b1c2d; color: #fff; margin: 0; padding: 20px; }
+h1, h2 { color: #d4af37; }
+.card { background: rgba(0,0,0,0.45); border: 1px solid #d4af37; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+input, button { width: 100%; padding: 10px; margin-top: 10px; border-radius: 6px; border: none; }
+button { background: #1f3c57; color: #d4af37; font-weight: bold; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+td, th { border: 1px solid #555; padding: 8px; text-align: left; }
+.footer { font-size: 0.9em; opacity: 0.85; }
 a { color: #d4af37; }
 </style>
 </head>
@@ -61,10 +26,8 @@ a { color: #d4af37; }
 <div class="card">
   <p><strong>Purpose:</strong> OSHOBE reduces calculation stress for agents.</p>
   <p><strong>Agent Earnings Rule:</strong> 10% of transaction value</p>
-
   <input type="number" id="amount" placeholder="Enter Transaction Value (₦)">
   <button onclick="calculate()">Calculate Earnings</button>
-
   <p id="result"></p>
 </div>
 
@@ -96,7 +59,6 @@ a { color: #d4af37; }
       WhatsApp Feedback
     </a>
   </p>
-
   <p><strong>Official Address:</strong><br>
   First Standard Title Limited (FSTL)<br>
   19, Egbue Avenue, Off Benoni Hospital Road, GRA, Benin City</p>
@@ -116,7 +78,6 @@ function addRow() {
   const c = client.value;
   const v = value.value;
   if (!p || !c || !v) return;
-
   const e = v * 0.10;
   const row = `<tr>
     <td>${p}</td>
@@ -124,12 +85,8 @@ function addRow() {
     <td>₦${Number(v).toLocaleString()}</td>
     <td>₦${e.toLocaleString()}</td>
   </tr>`;
-
   document.getElementById("log").innerHTML += row;
-
-  property.value = "";
-  client.value = "";
-  value.value = "";
+  property.value = ""; client.value = ""; value.value = "";
 }
 </script>
 
