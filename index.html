@@ -11,6 +11,7 @@
   --fstl-white: #FFFFFF;
 }
 
+/* Global Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -93,15 +94,23 @@ th {
   font-size: 1.05em;
 }
 
-/* Footer */
+/* Footer / Contact */
 .footer {
-  font-size: 0.9em;
-  opacity: 0.85;
+  font-size: 0.95em;
+  opacity: 0.95;
   margin-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 15px;
 }
 a {
   color: var(--fstl-white);
   text-decoration: underline;
+}
+
+/* Explanatory Text */
+.explanation {
+  font-size: 0.95em;
+  margin-bottom: 15px;
 }
 </style>
 </head>
@@ -121,12 +130,27 @@ Official Address: 19, Egbue Avenue, Off Benoni Hospital Road, GRA, Benin City
 
 <h1>OSHOBE – FSTL Professional Pilot</h1>
 <p><strong>⚠️ PILOT VERSION – FEEDBACK REQUESTED</strong></p>
-<p>Welcome to the FSTL OSHOBE Pilot. Calculate agent earnings, log property transactions, and view running totals with timestamps. Fully optimized for performance and mobile-friendly.</p>
+
+<!-- Introduction / Value Proposition -->
+<div class="card">
+<h2>Why OSHOBE?</h2>
+<p class="explanation">
+Managing property transactions and calculating agent earnings can be time-consuming and error-prone. OSHOBE automates these calculations, keeps a digital record of all transactions, and allows exporting for reporting or compliance.
+</p>
+<p class="explanation"><strong>Key Benefits:</strong></p>
+<ul class="explanation">
+  <li>Instant calculation of agent earnings (10% of transaction value)</li>
+  <li>Real-time transaction logs with timestamps</li>
+  <li>Automatic running totals for easy reporting</li>
+  <li>Exportable CSV files for professional record-keeping</li>
+  <li>Mobile-friendly, clean corporate interface</li>
+</ul>
+</div>
 
 <!-- Agent Earnings Calculator -->
 <div class="card">
 <h2>Agent Earnings Calculator</h2>
-<p>Agents earn 10% of each property transaction. Enter the transaction value below:</p>
+<p class="explanation">Enter the transaction value to calculate the agent's earnings instantly.</p>
 <input type="number" id="amount" placeholder="Enter Transaction Value (₦)">
 <button onclick="calculate()">Calculate Earnings</button>
 <p id="result"></p>
@@ -135,6 +159,7 @@ Official Address: 19, Egbue Avenue, Off Benoni Hospital Road, GRA, Benin City
 <!-- Property / Lead Logging -->
 <div class="card">
 <h2>Property / Lead Logging</h2>
+<p class="explanation">Log property transactions and client details. Each transaction is timestamped automatically. Running totals are calculated below.</p>
 <input id="property" placeholder="Property Name">
 <input id="client" placeholder="Client Name">
 <input id="value" type="number" placeholder="Transaction Value (₦)">
@@ -156,13 +181,15 @@ Official Address: 19, Egbue Avenue, Off Benoni Hospital Road, GRA, Benin City
 <p class="summary" id="totals">Total Transactions: ₦0 | Total Earnings: ₦0</p>
 
 <button onclick="downloadCSV()">Download CSV</button>
+<p class="explanation">CSV (Comma-Separated Values) allows you to save transaction data in a spreadsheet format for reporting, analysis, or official submission. Compatible with Excel, Google Sheets, and similar software.</p>
 </div>
 
-<!-- Feedback -->
+<!-- Feedback / Contact -->
 <div class="card footer">
-<h2>Send Feedback</h2>
-<p>Email: fstlofficialsite@gmail.com</p>
-<p><a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A" target="_blank">WhatsApp Feedback</a></p>
+<h2>Contact & Feedback</h2>
+<p>Email: <a href="mailto:fstlofficialsite@gmail.com">fstlofficialsite@gmail.com</a></p>
+<p>WhatsApp: <a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A" target="_blank">+234 803 588 8622</a></p>
+<p>All feedback is welcome. It will help improve OSHOBE for full official deployment.</p>
 </div>
 
 </div>
@@ -177,7 +204,10 @@ function getTimestamp() {
 
 function calculate() {
   const val = Number(document.getElementById("amount").value);
-  if (!val) { document.getElementById("result").textContent = "Please enter a valid transaction value."; return; }
+  if (!val) {
+    document.getElementById("result").textContent = "Please enter a valid transaction value.";
+    return;
+  }
   const earn = val * 0.10;
   document.getElementById("result").textContent = "Agent Earnings: ₦" + earn.toLocaleString();
 }
