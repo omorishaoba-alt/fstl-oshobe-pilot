@@ -2,115 +2,94 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>OSHOBE – FSTL Professional Pilot</title>
+<title>OSHOBE – FSTL Pilot Application</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root {
-  --fstl-blue: #0B1C2D;
-  --fstl-white: #FFFFFF;
+:root{
+  --fstl-blue:#007f7f;      /* Aquamarine Blue */
+  --fstl-light:#ffffff;
+  --fstl-soft:#f4fbfb;
 }
 
-/* Global Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: var(--fstl-blue);
-  color: var(--fstl-white);
-  line-height: 1.5;
-}
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
-h1, h2 {
-  margin: 0 0 10px 0;
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:var(--fstl-soft);
+  color:#002b2b;
+  line-height:1.6;
 }
 
-/* Header */
-.header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-.header img {
-  height: 60px;
-  width: auto;
-}
-.header div {
-  font-size: 1em;
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
 }
 
-/* Card Layout */
-.card {
-  background-color: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 25px;
+h1,h2,h3{
+  color:var(--fstl-blue);
+  margin-top:0;
 }
 
-/* Inputs & Buttons */
-input, button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 6px;
-  border: none;
-  font-size: 1em;
-}
-button {
-  background-color: var(--fstl-white);
-  color: var(--fstl-blue);
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-button:hover {
-  background-color: #e6e6e6;
+.card{
+  background:#ffffff;
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:25px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* Tables */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-th, td {
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 10px;
-  text-align: left;
-}
-th {
-  background-color: rgba(255,255,255,0.1);
+input,button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  font-size:1em;
 }
 
-/* Summary */
-.summary {
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 1.05em;
+button{
+  background:var(--fstl-blue);
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-/* Footer / Contact */
-.footer {
-  font-size: 0.95em;
-  opacity: 0.95;
-  margin-top: 25px;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding-top: 15px;
-}
-a {
-  color: var(--fstl-white);
-  text-decoration: underline;
+button:hover{
+  opacity:0.9;
 }
 
-/* Explanatory Text */
-.explanation {
-  font-size: 0.95em;
-  margin-bottom: 15px;
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+
+th,td{
+  border:1px solid #ddd;
+  padding:10px;
+  text-align:left;
+}
+
+th{
+  background:#e9f6f6;
+}
+
+.summary{
+  font-weight:bold;
+  margin-top:15px;
+}
+
+footer{
+  margin-top:40px;
+  padding-top:20px;
+  border-top:2px solid var(--fstl-blue);
+  font-size:0.95em;
+}
+
+a{
+  color:var(--fstl-blue);
+  text-decoration:none;
+  font-weight:bold;
 }
 </style>
 </head>
@@ -118,139 +97,141 @@ a {
 <body>
 <div class="container">
 
-<!-- Header -->
-<div class="header">
-<img src="https://yourcompany.com/logo.png" alt="FSTL Logo">
-<div>
-<strong>First Standard Title Limited (FSTL)</strong><br>
-RC Number: 714548<br>
-Official Address: 19, Egbue Avenue, Off Benoni Hospital Road, GRA, Benin City
-</div>
-</div>
+<!-- TITLE -->
+<h1>OSHOBE – FSTL Pilot Application</h1>
+<p><strong>Pilot Version – Feedback-Driven Deployment</strong></p>
 
-<h1>OSHOBE – FSTL Professional Pilot</h1>
-<p><strong>⚠️ PILOT VERSION – FEEDBACK REQUESTED</strong></p>
-
-<!-- Introduction / Value Proposition -->
+<!-- VALUE PROPOSITION -->
 <div class="card">
-<h2>Why OSHOBE?</h2>
-<p class="explanation">
-Managing property transactions and calculating agent earnings can be time-consuming and error-prone. OSHOBE automates these calculations, keeps a digital record of all transactions, and allows exporting for reporting or compliance.
+<h2>Purpose & Value Proposition</h2>
+<p>
+OSHOBE is a lightweight professional tool developed by First Standard Title Limited (FSTL) to
+reduce calculation errors, save time, and introduce structured digital records for property agents.
 </p>
-<p class="explanation"><strong>Key Benefits:</strong></p>
-<ul class="explanation">
-  <li>Instant calculation of agent earnings (10% of transaction value)</li>
-  <li>Real-time transaction logs with timestamps</li>
-  <li>Automatic running totals for easy reporting</li>
-  <li>Exportable CSV files for professional record-keeping</li>
-  <li>Mobile-friendly, clean corporate interface</li>
+<ul>
+<li>Instant and accurate agent earnings calculation</li>
+<li>Clear transaction logging with timestamps</li>
+<li>Professional records suitable for reporting and review</li>
+<li>Designed for mobile and field use</li>
 </ul>
 </div>
 
-<!-- Agent Earnings Calculator -->
+<!-- CALCULATOR -->
 <div class="card">
 <h2>Agent Earnings Calculator</h2>
-<p class="explanation">Enter the transaction value to calculate the agent's earnings instantly.</p>
-<input type="number" id="amount" placeholder="Enter Transaction Value (₦)">
+<p><strong>Rule:</strong> Agents earn a fixed <strong>10%</strong> of each transaction value.</p>
+
+<input type="number" id="calcValue" placeholder="Enter Transaction Value (₦)">
 <button onclick="calculate()">Calculate Earnings</button>
-<p id="result"></p>
+<p id="calcResult"></p>
 </div>
 
-<!-- Property / Lead Logging -->
+<!-- LOGGING -->
 <div class="card">
-<h2>Property / Lead Logging</h2>
-<p class="explanation">Log property transactions and client details. Each transaction is timestamped automatically. Running totals are calculated below.</p>
+<h2>Log Property / Lead</h2>
+<p>
+Record property transactions for reference, monitoring, and reporting.
+Each entry is automatically timestamped.
+</p>
+
 <input id="property" placeholder="Property Name">
 <input id="client" placeholder="Client Name">
-<input id="value" type="number" placeholder="Transaction Value (₦)">
-<button onclick="addRow()">Add Lead</button>
+<input type="number" id="value" placeholder="Transaction Value (₦)">
+<button onclick="addEntry()">Add Transaction</button>
 
 <table>
 <thead>
 <tr>
-<th>Timestamp</th>
+<th>Date / Time</th>
 <th>Property</th>
 <th>Client</th>
-<th>Transaction Value (₦)</th>
+<th>Value (₦)</th>
 <th>Agent Earnings (₦)</th>
 </tr>
 </thead>
 <tbody id="log"></tbody>
 </table>
 
-<p class="summary" id="totals">Total Transactions: ₦0 | Total Earnings: ₦0</p>
+<p class="summary" id="totals">
+Total Transaction Value: ₦0 | Total Earnings: ₦0
+</p>
 
 <button onclick="downloadCSV()">Download CSV</button>
-<p class="explanation">CSV (Comma-Separated Values) allows you to save transaction data in a spreadsheet format for reporting, analysis, or official submission. Compatible with Excel, Google Sheets, and similar software.</p>
+
+<p>
+<strong>What is CSV?</strong><br>
+CSV (Comma-Separated Values) is a universal file format that opens in Excel,
+Google Sheets, or any spreadsheet software. It allows agents and managers to
+store, review, and submit transaction records professionally.
+</p>
 </div>
 
-<!-- Feedback / Contact -->
-<div class="card footer">
-<h2>Contact & Feedback</h2>
-<p>Email: <a href="mailto:fstlofficialsite@gmail.com">fstlofficialsite@gmail.com</a></p>
-<p>WhatsApp: <a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A" target="_blank">+234 803 588 8622</a></p>
-<p>All feedback is welcome. It will help improve OSHOBE for full official deployment.</p>
-</div>
+<!-- FOOTER -->
+<footer>
+<h3>Official Contact & Corporate Information</h3>
+
+<p>
+<strong>First Standard Title Limited (FSTL)</strong><br>
+RC Number: <strong>714548</strong><br>
+19, Egbue Avenue, Off Benoni Hospital Road,<br>
+GRA, Benin City, Nigeria
+</p>
+
+<p>
+📧 Email:
+<a href="mailto:fstlofficialsite@gmail.com">fstlofficialsite@gmail.com</a><br>
+💬 WhatsApp:
+<a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A"
+target="_blank">+234 803 588 8622</a>
+</p>
+
+<p>
+This is a pilot deployment. All feedback from agents, stakeholders, and regulators
+will directly inform the final national rollout.
+</p>
+</footer>
 
 </div>
 
 <script>
-let totalValue = 0, totalEarnings = 0;
+let totalValue=0, totalEarnings=0;
 
-function getTimestamp() {
-  const now = new Date();
-  return now.toLocaleString();
+function calculate(){
+  const v=Number(document.getElementById("calcValue").value);
+  if(!v){document.getElementById("calcResult").innerText="Please enter a value.";return;}
+  document.getElementById("calcResult").innerText=
+  "Agent Earnings: ₦"+(v*0.10).toLocaleString();
 }
 
-function calculate() {
-  const val = Number(document.getElementById("amount").value);
-  if (!val) {
-    document.getElementById("result").textContent = "Please enter a valid transaction value.";
-    return;
-  }
-  const earn = val * 0.10;
-  document.getElementById("result").textContent = "Agent Earnings: ₦" + earn.toLocaleString();
+function addEntry(){
+  const p=property.value.trim();
+  const c=client.value.trim();
+  const v=Number(value.value);
+  if(!p||!c||!v)return;
+
+  const e=v*0.10;
+  const t=new Date().toLocaleString();
+
+  log.innerHTML+=
+  `<tr><td>${t}</td><td>${p}</td><td>${c}</td><td>₦${v.toLocaleString()}</td><td>₦${e.toLocaleString()}</td></tr>`;
+
+  totalValue+=v;
+  totalEarnings+=e;
+
+  totals.innerText=
+  `Total Transaction Value: ₦${totalValue.toLocaleString()} | Total Earnings: ₦${totalEarnings.toLocaleString()}`;
 }
 
-function addRow() {
-  const p = document.getElementById("property").value.trim();
-  const c = document.getElementById("client").value.trim();
-  const v = Number(document.getElementById("value").value);
-  if (!p || !c || !v) return;
-
-  const e = v * 0.10;
-  const ts = getTimestamp();
-  const row = `<tr>
-    <td>${ts}</td>
-    <td>${p}</td>
-    <td>${c}</td>
-    <td>₦${v.toLocaleString()}</td>
-    <td>₦${e.toLocaleString()}</td>
-  </tr>`;
-
-  document.getElementById("log").innerHTML += row;
-
-  totalValue += v;
-  totalEarnings += e;
-  document.getElementById("totals").textContent = `Total Transactions: ₦${totalValue.toLocaleString()} | Total Earnings: ₦${totalEarnings.toLocaleString()}`;
-
-  document.getElementById("property").value = "";
-  document.getElementById("client").value = "";
-  document.getElementById("value").value = "";
-}
-
-function downloadCSV() {
-  let csv = "Timestamp,Property,Client,Transaction Value (₦),Agent Earnings (₦)\n";
-  document.querySelectorAll("#log tr").forEach(row => {
-    const cols = row.querySelectorAll("td");
-    const line = Array.from(cols).map(td => td.textContent.replace(/₦|,/g,"")).join(",");
-    csv += line + "\n";
+function downloadCSV(){
+  let csv="Date,Property,Client,Value,Earnings\n";
+  document.querySelectorAll("#log tr").forEach(r=>{
+    csv+=Array.from(r.children).map(c=>c.innerText.replace(/₦|,/g,"")).join(",")+"\n";
   });
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "OSHOBE_Leads.csv";
-  link.click();
+  const blob=new Blob([csv],{type:"text/csv"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="OSHOBE_FSTL_Pilot.csv";
+  a.click();
 }
 </script>
 </body>
